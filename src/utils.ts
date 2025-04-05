@@ -1,16 +1,16 @@
-import stockData from "./data/google_eod_prices.json";
-
+import rawStockData from "./data/google_eod_prices.json";
+const stockData: Record<string, { close: number; timestamp: number }> = rawStockData;
 export function getStocksValueAtGiveTimeAtEod(
   timeStamp: string,
   quality: number
 ): number {
   try {
-    const epoch = Math.floor(new Date(timeStamp).getTime() / 1000);
+    const epoch = Math.floor(new Date(timeStamp).getTime() / 1000).toString();
     const stockPriceAtEod: number = stockData[epoch].close;
     const portfolioValue = stockPriceAtEod * quality;
     return portfolioValue;
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error as string)
   }
 }
 

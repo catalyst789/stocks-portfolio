@@ -20,7 +20,7 @@ type GraphData = {
 };
 
 function App() {
-  const [data, setData] = useState(stockToTransactions.GOOGL);
+  const data = stockToTransactions.GOOGL;
   const [realGraphData, setRealGraphData] = useState<GraphData[]>([]);
 
   function handleStocksDataGeb() {
@@ -40,9 +40,9 @@ function App() {
     };
     output.push(initialObj);
     everyDayList.splice(0, 1);
-    for (let day of everyDayList) {
+    for (const day of everyDayList) {
       try {
-        let newObj = {
+        const newObj = {
           name: day,
           uv: getStocksValueAtGiveTimeAtEod(day, currQuantity),
         };
