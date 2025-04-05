@@ -1,0 +1,12 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+circle{
+  visibility: hidden;
+}
